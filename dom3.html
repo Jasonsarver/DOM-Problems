@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <script>
+    function cityFunction(){
+        // grab select
+        const bigCities = document.getElementById("cities");
+        // use dom select methods to find length of cities
+        const numOfCities = document.getElementById("cities").length;
+        console.log(numOfCities);
+        // use selectedindex to grab option user selected
+        const selectedCity = bigCities.options[bigCities.selectedIndex].value
+        console.log(selectedCity);
+        // empty string to plug for loop result into
+        let citiesStr = "";
+        for(let i = 0; i > bigCities.length; i++){
+            citiesStr = citiesStr + bigCities[i].text + ", ";
+        }
+        // put values into their respective P elements
+        document.getElementById("selectedcityname").innerHTML = selectedCity;
+        document.getElementById("numbercities").innerHTML = numOfCities
+    }
+  </script>
+</head>
+<body>
+  <select id="cities" onchange = "cityFunction()">
+    <option>Seattle</option>
+    <option>Dallas</option>
+    <option>New York</option>
+  </select>
+  <p id= "selectedcityname"></p>
+  <p id="numbercities"></p>
+</body>
+</html>
